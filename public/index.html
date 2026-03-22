@@ -1,0 +1,13 @@
+<input id="regNo" placeholder="Enter Reg No" />
+<button onclick="search()">Search</button>
+
+<pre id="result"></pre>
+
+<script>
+    async function search() {
+        const regNo = document.getElementById("regNo").value;
+        const res = await fetch(`/student/${regNo}`);
+        const data = await res.json();
+        document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+    }
+</script>
